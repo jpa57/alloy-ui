@@ -204,7 +204,7 @@ var SchedulerDayView = A.Component.create({
          * @type {Number}
          */
         days: {
-            value: 1,
+            value: 2,
             validator: isNumber
         },
 
@@ -1654,7 +1654,7 @@ var SchedulerDayView = A.Component.create({
             }
             endDate = DateMath.add(startDate, DateMath.MINUTES, duration);
 
-            recorder.move(startDate, {
+            recorder.move(startDate, { // This is the call to move for the front
                 silent: true
             });
 

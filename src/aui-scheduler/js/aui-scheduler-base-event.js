@@ -742,6 +742,13 @@ var SchedulerEvent = A.Component.create({
          * @method move
          * @param {Date} date
          * @param {Object} options Zero or more options.
+         *
+         * When adding an appointment with drag across week view, this gets
+         * called twice - once when you start and once when you finish.
+         * The parameter date is the date you are pointing at in both cases, a
+         * and these may be different.  Some other entity is converting that
+         * to the same day to force start and finish to be at the same place.
+         * JPA 6 Jan 2017
          */
         move: function(date, options) {
             var instance = this;
@@ -995,7 +1002,7 @@ var SchedulerEvent = A.Component.create({
         },
 
         /**
-         * Returns the format for the title date.
+         * Returns the format for the title date. // maybe useful for communicating blocks
          *
          * @method _getTitleDateFormat
          * @param {String|Function} val
